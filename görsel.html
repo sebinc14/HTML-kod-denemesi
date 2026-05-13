@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="eski-kagit">
+  <p>
+    Buraya senin o meşhur paragrafın gelecek. Eskimiş, kenarları yanmış 
+    ve yıllara meydan okumuş bir parşömen gibi görünecek...
+  </p>
+</div>
+<style>
+.eski-kagit {
+    width: 350px;
+    padding: 40px;
+    background: #f2e8c9;
+    position: relative;
+    font-family: 'Georgia', serif;
+    margin: 50px auto;
+
+    /* 1. KENARLARI TIRTILIMSI YAPMAK İÇİN */
+    filter: url(#rough-edges) drop-shadow(0 0 5px rgba(0,0,0,0.5));
+    
+    /* 2. KAĞIDIN İÇİNE YANIK KARALTISI EKLE */
+    box-shadow: inset 0 0 60px rgba(45, 26, 8, 0.8), 
+                inset 0 0 10px rgba(0,0,0,0.5);
+    
+    border: 1px solid transparent;
+}
+
+/* KAĞIDIN DOKUSU VE HAFİF RENK DALGALANMASI */
+.eski-kagit::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: radial-gradient(circle, transparent 30%, rgba(54, 33, 13, 0.2) 100%);
+    z-index: -1;
+}
+
+</style>
+ 
+</body>
+</html>

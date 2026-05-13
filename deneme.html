@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hakkımda - Sevinç Molla</title>
+    <style>
+        /* Genel Stil Ayarları */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        /* Navigasyon Konteyneri (Kitapların dizeceği raf) */
+        nav {
+            display: flex;
+            gap: 20px;
+            perspective: 1000px; /* 3D Efekt İçin Şart */
+        }
+
+        /* Kitap Genel Yapısı (Her link bir kitap) */
+        .book {
+            width: 150px;
+            height: 220px;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 1s ease-in-out;
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Mouse Üzerine Gelince Kitap Döner (Açılır) */
+        .book:hover {
+            transform: rotateY(-160deg); /* 160 derece sola açılır */
+        }
+
+        /* Kitap Kapağı (Ön Yüz) */
+        .cover {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: #2c3e50; /* Kapak Rengi */
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 5px 15px 15px 5px; /* Kitap sırtı kavisli */
+            box-shadow: 5px 5px 15px rgba(0,0,0,0.3);
+            backface-visibility: hidden; /* Arka yüzü gizle */
+            z-index: 2;
+            font-weight: bold;
+            font-size: 1.1em;
+            text-align: center;
+            padding: 10px;
+            box-sizing: border-box;
+            border-left: 5px solid #1a252f; /* Kitap sırtı detayı */
+        }
+
+        /* Kitap Sayfası (İç Yüz) */
+        .page {
+            position: absolute;
+            width: 95%; /* Kapaktan biraz küçük */
+            height: 95%;
+            top: 2.5%;
+            left: 0;
+            background-color: white;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 0 10px 10px 0;
+            box-shadow: inset 3px 0 10px rgba(0,0,0,0.1);
+            transform: rotateY(180deg); /* Sayfa ters durur, kapak açılınca görünür */
+            z-index: 1;
+            padding: 15px;
+            box-sizing: border-box;
+            font-size: 0.9em;
+            line-height: 1.4;
+        }
+
+        /* Farklı Kitap Renkleri (Opsiyonel) */
+        .book:nth-child(1) .cover { background-color: #c0392b; border-left-color: #a93226; } /* Kırmızı */
+        .book:nth-child(2) .cover { background-color: #27ae60; border-left-color: #1e8449; } /* Yeşil */
+        .book:nth-child(3) .cover { background-color: #2980b9; border-left-color: #21618c; } /* Mavi */
+
+    </style>
+</head>
+<body>
+
+    <nav>
+        <!-- ANA SAYFA KİTABI -->
+        <a href="index.html" class="book">
+            <div class="cover">Ana Sayfa</div>
+            <div class="page">
+                🚀<br>Sevinç'in Dijital Dünyasına Hoş Geldiniz!
+            </div>
+        </a>
+
+        <!-- HAKKIMDA KİTABI (Kapak "Hakkımda" Yazıyor) -->
+        <a href="hakkımda.html" class="book">
+            <div class="cover">Hakkımda</div>
+            <div class="page">
+                📖<br>Bursa doğumlu, Uludağ Üni. Bilgisayar Programcılığı öğrencisi.
+            </div>
+        </a>
+
+        <!-- İLETİŞİM KİTABI -->
+        <a href="iletisim.html" class="book">
+            <div class="cover">İletişim</div>
+            <div class="page">
+                📞<br>Benimle iletişime geçmek için tıklayın.
+            </div>
+        </a>
+    </nav>
+
+</body>
+</html>
